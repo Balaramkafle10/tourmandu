@@ -6,103 +6,151 @@
     <title>Data Information</title>
     
     <style>
-.button2 {
-  background-color: lawngreen;
-  font-size: 18px;
-  height: 1.5rem;
-  width: 5rem;
-}
-.button1 {
-    background-color: red;
-    font-size: 18px;
-    height: 1.5rem;
-    width: 5rem;
+/* Standard Styling */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #f39c12;
+    --text-color: #333;
+    --bg-color: #ecf0f1;
+    --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
 }
 
-.package-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.package {
-  width: calc(25% - 20px); /* For three images per row */
-  margin: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  border-radius: 5px;
-}
-@media (max-width: 1200px) {
-  .package {
-    width: calc(25% - 20px); /* For four images per row */
-  }
-}
-.package-container {
-  width: 100%;
-  max-width: 1800px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: stretch; /* Align items to the start of the flex container */
-}
-.main-content {
-  width: 100%;
-  margin: 30px auto;
- 
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-  justify-content: space-around; /* Distribute items evenly with space around them */
-}
-.main-content1 {
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(rgba(141, 141, 237, 0.8), rgba(143, 143, 241, 0.8)), url(https://assets.thehansindia.com/h-upload/2019/12/27/248830-worldtour.jpg);
-    
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
 .header {
-    position: sticky;
-    top:0; left:0; right: 0;
-    z-index: 1000;
-    background-color: rgba(0, 0, 128, 0.696);
     display: flex;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    box-shadow: var(--box-shadow);
-    align-items: center;
     justify-content: space-between;
-}
-.header .logo {
-    font-size: 2.5rem;
+    align-items: center;
+    padding: 15px 30px;
+    background: var(--primary-color);
     color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
 }
-.header .navbar a {
-    font-size: 1.5rem;
-    margin-left: 2rem;
-    color: white;
-    text-transform: capitalize;
-}
-.header .navbar a:hover {
-    color: var(--main-color);
-}
-.header .icons a{
-    font-size: 1.7rem;
-    color: #fff;
-    cursor: pointer;
-    margin-right: 1.5rem;
-}
-.header .icons a:hover{
-    color: var(--main-color);
-}  
- 
 
-* {
-    font-family: "Poppins", sans-serif;
-    margin:0; padding:0;
-    box-sizing: border-box;
-    outline: none; border: none;
+.header .logo h3 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin: 0;
+}
+.navbar a {
+    color: white;
+    font-size: 1rem;
+    margin: 0 15px;
     text-decoration: none;
-    text-transform: capitalize;
+    transition: color var(--transition-speed);
+}
+
+.navbar a:hover {
+    color: var(--secondary-color);
+}
+.icons a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color var(--transition-speed);
+}
+
+.icons a:hover {
+    color: var(--secondary-color);
+}
+
+.main-content1 {
+    padding-top: 80px; /* Adjusted for fixed header */
+    background-image: linear-gradient(rgba(141, 141, 237, 0.8), rgba(143, 143, 241, 0.8)), url(https://assets.thehansindia.com/h-upload/2019/12/27/248830-worldtour.jpg);
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 4rem;
+}
+
+.main-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.main-content h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.package-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.package {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed);
+    text-align: center;
+}
+
+.package:hover {
+    transform: translateY(-10px);
+}
+
+.package-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+.package p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin: 0.5rem 0;
+}
+
+.button2, .button1 {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: background var(--transition-speed);
+    margin: 0.5rem;
+}
+
+.button2 {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.button2:hover {
+    background: var(--primary-color);
+}
+
+.button1 {
+    background: #ff4d4d;
+    color: white;
+}
+
+.button1:hover {
+    background: #cc0000;
 }
     </style>
 </head>
@@ -111,13 +159,13 @@
 <section class="header">
     <a href="home.php" class="logo"><h3>TOURMANDU</h3> </a>
     <nav class="navbar">
-        <a href="addPackages.php">addPackage</a>
+        <a href="addPackages.php">add package</a>
         <a href="package_list.php">package information</a>
         <a href="user_list.php">user information</a>
         <a href="booked.php">package booked</a>
     </nav>
     <div class="icons">
-        <a href="login.php"><i class="fas fa-sign-out"></i>Logout</a>
+        <a href="login.php"><i class="fas fa-sign-out"></i></a>
     </div>
 </section>
 <div class="main-content1">
@@ -127,11 +175,11 @@
     <div class="package-container">
 <?php
 include 'connection.php';
-session_start();
-if (!isset($_SESSION['id']) || !isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
-    header('Location: login.php');
-    exit();
-}
+
+// if (!isset($_SESSION['id']) || !isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
+//     header('Location: login.php');
+//     exit();
+// }
 
 
 try {
@@ -140,7 +188,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Retrieve the package records from the database
-    $sql = "SELECT id, location, duration, price, image FROM package";
+    $sql = "SELECT * FROM package";
     $stmt = $pdo->query($sql);
 
     // Check if there are any package records

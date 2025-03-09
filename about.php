@@ -10,119 +10,284 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style2.css">
     <style>
-.heading{
-    background-size: cover !important;
-    background-position: cover !important;
-    padding-top: 7rem;
-    padding-bottom: 5rem;
+/* Standard Styling */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #f39c12;
+    --text-color: #333;
+    --bg-color: #ecf0f1;
+    --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: var(--primary-color);
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+.header .logo h3 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.navbar a {
+    color: white;
+    font-size: 1rem;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.navbar a:hover {
+    color: var(--secondary-color);
+}
+
+.icons a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color var(--transition-speed);
+}
+
+.icons a:hover {
+    color: var(--secondary-color);
+}
+
+#menu-btn {
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    display: none; /* Hidden by default, typically shown on mobile via JS */
+}
+
+.heading {
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
-}   
-.heading h1{
-    font-size: 6rem;
+    text-align: center;
+    margin-top: 60px; /* Adjusted for fixed header */
+}
+
+.heading h1 {
+    font-size: 4rem;
     text-transform: uppercase;
-    color: var(--light-bg);
-    text-shadow: var(--text-shadow);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.header .icons a{
-    font-size: 1.7rem;
-    color: #fff;
-    cursor: pointer;
-    margin-right: 1.5rem;
-}
-.header .icons a:hover{
-    color: var(--main-color);
-}
-.about{
+
+.about {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 3rem;
-} 
-.about .image{
-    flex: 1 1 41rem;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    align-items: center;
+    background: white;
 }
-.about .image img{
+
+.about .image {
+    flex: 1 1 40%;
+}
+
+.about .image img {
     width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
-.about .content{
-    flex:1 1 41rem ;
+
+.about .content {
+    flex: 1 1 40%;
     text-align: center;
 }
-.about .content h3{
-    font-size: 3rem;
-    color: var(--black);
+
+.about .content h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
-.about .content p{
-    font-size: 1.5rem;
-    color: var(--light-black);
-    line-height: 2;
-    padding: 1rem 0;
+
+.about .content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
 }
-.about .content .icons-container{
-    margin-top: 2rem;
+
+.about .content .icons-container {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
-    align-items: flex-end;
+    justify-content: center;
 }
-.about .content .icons-container .icons{
-    background: var(--light-bg);
+
+.about .content .icons-container .icons {
+    background: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    flex: 1 1 15rem;
+    text-align: center;
+    transition: transform var(--transition-speed);
+}
+
+.about .content .icons-container .icons:hover {
+    transform: translateY(-10px);
+}
+
+.about .content .icons-container .icons i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.about .content .icons-container .icons span {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.reviews {
+    padding: 4rem 2rem;
+    background: var(--bg-color);
+}
+
+.reviews .heading-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.reviews .swiper-wrapper {
+    display: flex;
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+
+.reviews .slide {
+    background: white;
     padding: 2rem;
-    flex: 1 1 16rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: transform var(--transition-speed);
 }
-.about .content .icons-container .icons i{
-    font-size: 4rem;
-    margin-bottom: 3rem;
-    color: var(--main-color);
+
+.reviews .slide:hover {
+    transform: translateY(-10px);
 }
-.about .content .icons-container .icons span{
+
+.reviews .slide .stars {
+    padding-bottom: 0.5rem;
+}
+
+.reviews .slide .stars i {
     font-size: 1.5rem;
-    color: var(--light-black);
+    color: var(--secondary-color);
+}
+
+.reviews .slide p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+
+.reviews .slide h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.reviews .slide span {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
     display: block;
 }
 
-.reviews{
-    background: var(--light-bg);
-}
-.reviews .slide{
-    display:grid;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 1rem 2rem rgb(0, 0, 0, .1);
-    border-radius: .5rem;
-}
-.reviews .slide .stars{
-    padding-bottom: .5rem;
-}
-.reviews .slide .stars i{
-    font-size: 1.7rem;
-    color: var(--main-color);
-}
-.reviews .slide p{
-    font-size: 1.5rem;
-    color: var(--light-black);
-    line-height: 2;
-    padding: 1.5rem 0;
-}
-.reviews .slide h3{
-    font-size: 2rem;
-    color: #333;
-}
-.reviews .slide span{
-    font-size: 1.5rem;
-    color: var(--main-color);
-    display: block;
-}
-.reviews .slide img{
-    height: 13rem;
-    width: 13rem;
+.reviews .slide img {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
     margin-top: 1rem;
 }
 
+.footer {
+    background: var(--primary-color);
+    padding: 4rem 2rem;
+    color: white;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer .box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer .box a {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    display: block;
+    margin: 0.5rem 0;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.footer .box a:hover {
+    color: white;
+}
+
+.footer .credit {
+    margin-top: 2rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.footer .credit span {
+    color: var(--secondary-color);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    transition: background var(--transition-speed);
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: var(--primary-color);
+}
     </style>
 </head>
 <body>
@@ -224,20 +389,7 @@
             <span>actress</span>
             <img src="https://sumitsharmasameer.com/wp-content/uploads/2023/11/keki-adhikari-1.jpeg" alt="">
         </div>
-        <div class="swiper-slider slide">
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>Traveling with this tour service was a game-changer. They handle all the details so you can focus
-                 on enjoying your trip. Highly recommend for anyone looking to elevate their travel experience.</p>
-            <h3>Sandeep Lamichhane</h3>
-            <span>cricketer</span>
-            <img src="https://web.nepalnews.com/storage/story/1024/viber_image_2023_04_28_07_31_57_4131682646467_1024.jpg" alt="">
-        </div>
+       
         <div class="swiper-slider slide">
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -305,8 +457,8 @@
     </div>
     <div class="box">
         <h3>contact info</h3>
-        <a href="#"><i class="fas fa-phone"></i> +977 9849426293</a>
-        <a href="#"><i class="fas fa-envelope"></i> stharajesh662@gmail.com</a>
+        <a href="#"><i class="fas fa-phone"></i> +977 9843238782</a>
+        <a href="#"><i class="fas fa-envelope"></i> kafle@gmail.com</a>
         <a href="#"><i class="fas fa-map"></i> Bagmati Province, Kathmandu, Nepal</a>
     </div>
 
@@ -320,7 +472,7 @@
 
     </div>
 
-    <div class="credit">created by <span>mr. amir shrestha</span> | all right reserved!</div>
+    <div class="credit">created by <span>mr. kafle toli</span> | all right reserved!</div>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

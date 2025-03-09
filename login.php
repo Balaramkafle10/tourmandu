@@ -72,107 +72,210 @@ $conn->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style2.css">
     <style>
-
-.header .icons a{
-    font-size: 1.7rem;
-    color: #fff;
-    cursor: pointer;
-    margin-right: 1.5rem;
+/* Standard Styling */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #f39c12;
+    --text-color: #333;
+    --bg-color: #ecf0f1;
+    --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
 }
-.header .icons a:hover{
-    color: var(--main-color);
-}  
- 
-.login-container{
-    height: 100vh;
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: var(--primary-color);
+    color: white;
+    position: fixed;
     width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+.header .logo h3 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.navbar a {
+    color: white;
+    font-size: 1rem;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.navbar a:hover {
+    color: var(--secondary-color);
+}
+
+.icons a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color var(--transition-speed);
+}
+
+.icons a:hover {
+    color: var(--secondary-color);
+}
+
+.login-container {
+    padding-top: 80px; /* Adjusted for fixed header */
     background-image: linear-gradient(rgba(141, 141, 237, 0.8), rgba(143, 143, 241, 0.8)), url(https://assets.thehansindia.com/h-upload/2019/12/27/248830-worldtour.jpg);
-    background-size:cover;
+    background-size: cover;
     background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.form-box{
-    border-radius: 24px;
+.form-box {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
     width: 90%;
-    max-width: 450px;
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-40%);
-     background: white;
-    padding: 50px 60px 70px; 
-    text-align:center;
+    max-width: 400px;
+    text-align: center;
 }
 
-.form-box h1{
-    font-size: 2.2rem;
-    margin-bottom:20px;
-    color:#3c00a0;
+.form-box h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
     position: relative;
 }
 
-.form-box h1::after{
+.form-box h1::after {
     content: '';
     width: 50px;
     height: 4px;
     border-radius: 3px;
-    background:rgb(128, 79, 128) ;
-    position:absolute;
-    bottom:-12px;
-    left:50%;
+    background: var(--secondary-color);
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
     transform: translateX(-50%);
-
 }
 
-.input-field{
-    background: #eaeaea;
-    margin:15px 0px;
-    border-radius: 3px;
+.input-field {
+    background: var(--bg-color);
+    margin: 15px 0;
+    border-radius: var(--border-radius);
     display: flex;
     align-items: center;
     max-height: 65px;
     transition: max-height 0.5s;
     overflow: hidden;
 }
+
 .input-field i {
     margin-left: 15px;
+    color: var(--primary-color);
 }
-input{
-    width:100%;
+
+.input-field input {
+    width: 100%;
     background: transparent;
     border: 0;
     outline: 0;
-    padding: 19px 20px;
+    padding: 15px 20px;
+    font-size: 1rem;
 }
-form p{
-    text-align:left;
-    font-size: 15px;
-}
-form p a {
-    text-decoration: none;
-    color: #3c00a0;
-}
-.btn-field{
+
+.btn-field {
     width: 100%;
-    margin-top: 10px;
-    padding: 10px 0px;
-    display: grid;
-    text-align: center;
-    
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
 }
-.btn-field button{
-    text-align: center;
-    height: 4rem;
-    width: 10rem;
-    flex-basis: 60%;
-    background: #3c00a0;
-    color: #fff;
-    border-radius: 25px;
+
+.btn-field button {
+    background: var(--secondary-color);
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    border: none;
     cursor: pointer;
-    
+    transition: background var(--transition-speed);
 }
-.case{
-    text-transform: lowercase;
+
+.btn-field button:hover {
+    background: var(--primary-color);
+}
+
+.form-box p {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.form-box p a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.form-box p a:hover {
+    color: var(--primary-color);
+}
+
+.footer {
+    background: var(--primary-color);
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer .box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.footer .box a {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    display: block;
+    margin: 0.4rem 0;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.footer .box a:hover {
+    color: white;
+}
+
+.footer .credit {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.footer .credit span {
+    color: var(--secondary-color);
 }
     </style>
 </head>
@@ -184,7 +287,7 @@ form p a {
         <a href="home.php">Home</a>
         <a href="about.php">About</a>
         <a href="package.php">Package</a>
-        <a href="book.php">Book</a>
+        
     </nav>
     <div class="icons">
         <a href="login.php"><i class="fas fa-user-circle"></i>Login</a>
@@ -222,49 +325,7 @@ form p a {
             </form>
         <p id="error-message" class="error-message" style="color: red;"></p>
     </div>
-    </div>
-
-
-
- 
-<section class="footer">
-    <div class="box-container">
-    <div class="box">
-        <h3>quick links</h3>
-        <a href="home.php"><i class="fas fa-angle-right"></i> Home</a>
-        <a href="about.php"><i class="fas fa-angle-right"></i> About</a>
-        <a href="package.php"><i class="fas fa-angle-right"></i> Package</a>
-        <a href="book.php"><i class="fas fa-angle-right"></i> Book</a>
-    </div>
-    <div class="box">
-        <h3>extra links</h3>
-        <a href="#"><i class="fas fa-angle-right"></i> ask questtions</a>
-        <a href="#"><i class="fas fa-angle-right"></i> about us</a>
-        <a href="#"><i class="fas fa-angle-right"></i> privacy policy</a>
-        <a href="#"><i class="fas fa-angle-right"></i> terms of use</a>
-    </div>
-    <div class="box">
-        <h3>contact info</h3>
-        <a href="#"><i class="fas fa-phone"></i> +977 9849426293</a>
-        <a href="#"><i class="fas fa-envelope"></i> stharajesh662@gmail.com</a>
-        <a href="#"><i class="fas fa-map"></i> Bagmati Province, Kathmandu, Nepal</a>
-    </div>
-
-    <div class="box">
-        <h3>follow us</h3>
-        <a href="#"><i class="fab fa-facebook-f"></i> facebook</a>
-        <a href="#"><i class="fab fa-twitter"></i> twitter</a>
-        <a href="#"><i class="fab fa-instagram"></i> instagram</a>
-        <a href="#"><i class="fab fa-linkedin"></i> linkedin</a>
-    </div>
-
-    </div>
-
-    <div class="credit">created by <span>mr. amir shrestha</span> | all right reserved!</div>
-</section>  
-
-
-    
+    </div>    
 </body>
 </html>
 

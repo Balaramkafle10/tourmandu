@@ -7,60 +7,137 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
    
     <style>
-        .information {
-    font-size: 25px;
+    /* Standard Styling */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #f39c12;
+    --text-color: #333;
+    --bg-color: #ecf0f1;
+    --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
 }
-.information{
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(rgba(141, 141, 237, 0.8), rgba(143, 143, 241, 0.8)), url(https://assets.thehansindia.com/h-upload/2019/12/27/248830-worldtour.jpg);
-  
-   
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
-  
 
 .header {
-    position: sticky;
-    top:0; left:0; right: 0;
-    z-index: 1000;
-    background-color: rgba(0, 0, 128, 0.696);
     display: flex;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    box-shadow: var(--box-shadow);
-    align-items: center;
     justify-content: space-between;
-}
-.header .logo {
-    font-size: 2.5rem;
+    align-items: center;
+    padding: 15px 30px;
+    background: var(--primary-color);
     color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
 }
-.header .navbar a {
-    font-size: 1.5rem;
-    margin-left: 2rem;
+
+.header .logo h3 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.navbar a {
     color: white;
-    text-transform: capitalize;
-}
-.header .navbar a:hover {
-    color: var(--main-color);
-}
-.header .icons a{
-    font-size: 1.7rem;
-    color: #fff;
-    cursor: pointer;
-    margin-right: 1.5rem;
-}
-.header .icons a:hover{
-    color: var(--main-color);
-}  
- 
-* {
-    font-family: "Poppins", sans-serif;
-    margin:0; padding:0;
-    
-    outline: none; 
+    font-size: 1rem;
+    margin: 0 15px;
     text-decoration: none;
-    text-transform: none;
+    transition: color var(--transition-speed);
+}
+
+.navbar a:hover {
+    color: var(--secondary-color);
+}
+
+.icons a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color var(--transition-speed);
+}
+
+.icons a:hover {
+    color: var(--secondary-color);
+}
+
+.information {
+    padding-top: 80px; /* Adjusted for fixed header */
+    background-image: linear-gradient(rgba(141, 141, 237, 0.8), rgba(143, 143, 241, 0.8)), url(https://assets.thehansindia.com/h-upload/2019/12/27/248830-worldtour.jpg);
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 4rem;
+}
+
+.information h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+table {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--bg-color);
+}
+
+table th {
+    background: var(--primary-color);
+    color: white;
+    font-size: 1.2rem;
+}
+
+table tr:hover {
+    background: var(--bg-color);
+}
+
+table a {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: background var(--transition-speed);
+    margin: 0.2rem;
+}
+
+table a.update {
+    background: var(--secondary-color);
+    color: white;
+}
+
+table a.update:hover {
+    background: var(--primary-color);
+}
+
+table a.delete {
+    background: #ff4d4d;
+    color: white;
+}
+
+table a.delete:hover {
+    background: #cc0000;
 }
     </style>
 </head>
@@ -75,7 +152,7 @@
         <a href="booked.php">package booked</a>
     </nav>
     <div class="icons">
-        <a href="login.php"><i class="fas fa-sign-out"></i>Logout</a>
+        <a href="login.php"><i class="fas fa-sign-out"></i></a>
     </div>
 </section>
 <div class="information">
